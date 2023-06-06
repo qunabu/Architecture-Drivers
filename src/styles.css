@@ -25,6 +25,11 @@ main > div {
    display: inline-flex;
 }
 
+main > .description {
+   padding: 10px 20px;
+   margin: 10px 0;
+}
+
 #unassigned .bonus {
    display: none;
 }
@@ -95,3 +100,4 @@ header img {
    top: 10px;
    right: 10px;
 }
+
