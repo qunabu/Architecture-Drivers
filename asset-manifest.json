@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Architecture-Drivers/static/css/main.0827134c.chunk.css",
-    "main.js": "/Architecture-Drivers/static/js/main.6f155e5b.chunk.js",
-    "main.js.map": "/Architecture-Drivers/static/js/main.6f155e5b.chunk.js.map",
+    "main.css": "/Architecture-Drivers/static/css/main.39b9c511.chunk.css",
+    "main.js": "/Architecture-Drivers/static/js/main.aba3ffac.chunk.js",
+    "main.js.map": "/Architecture-Drivers/static/js/main.aba3ffac.chunk.js.map",
     "runtime-main.js": "/Architecture-Drivers/static/js/runtime-main.f324ec03.js",
     "runtime-main.js.map": "/Architecture-Drivers/static/js/runtime-main.f324ec03.js.map",
     "static/js/2.6d5bfc66.chunk.js": "/Architecture-Drivers/static/js/2.6d5bfc66.chunk.js",
     "static/js/2.6d5bfc66.chunk.js.map": "/Architecture-Drivers/static/js/2.6d5bfc66.chunk.js.map",
     "index.html": "/Architecture-Drivers/index.html",
-    "static/css/main.0827134c.chunk.css.map": "/Architecture-Drivers/static/css/main.0827134c.chunk.css.map",
+    "static/css/main.39b9c511.chunk.css.map": "/Architecture-Drivers/static/css/main.39b9c511.chunk.css.map",
     "static/js/2.6d5bfc66.chunk.js.LICENSE.txt": "/Architecture-Drivers/static/js/2.6d5bfc66.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f324ec03.js",
     "static/js/2.6d5bfc66.chunk.js",
-    "static/css/main.0827134c.chunk.css",
-    "static/js/main.6f155e5b.chunk.js"
+    "static/css/main.39b9c511.chunk.css",
+    "static/js/main.aba3ffac.chunk.js"
   ]
 }
