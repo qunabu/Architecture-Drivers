@@ -1,2 +1,0 @@
-#root,.App,body,html{margin:0;padding:0;height:100%}*{box-sizing:border-box}.App{font-family:sans-serif;text-align:center}main{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-start;align-content:flex-start}main>div{display:inline-flex}#unassigned .bonus{display:none}.description{text-align:left}.description ul{padding-left:0}.description ul li{list-style:none}footer{text-align:left;padding:25px 0;margin:25px;border-top:1px solid}
-/*# sourceMappingURL=main.1af9ff84.chunk.css.map */
