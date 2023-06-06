@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-
-// type HashParamValue = string | string[] | object | null
+import { useState } from 'react'
 
 const getValueFromHash = <T>(paramName: string) => {
    const value = new URLSearchParams(window.location.hash.substring(1)).get(paramName)

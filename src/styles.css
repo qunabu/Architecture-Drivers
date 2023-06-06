@@ -29,6 +29,18 @@ main > div {
    display: none;
 }
 
+#assigned .bonus {
+   display: block;
+}
+
+#unassigned .description {
+   display: block;
+}
+
+#assigned .description {
+   display: none;
+}
+
 .description {
    text-align: left;
 }
@@ -47,3 +59,39 @@ footer {
    border-top: 1px solid;
 }
 
+.tooltip {
+   position: relative;
+}
+
+.tooltip__content {
+   text-align: left;
+   white-space: normal;
+   position: absolute;
+   border: 1px solid;
+   background: white;
+   border-radius: 4px;
+   padding: 3px;
+   visibility: hidden;
+   max-width: 300px;
+   width: max-content;
+   display: block;
+   z-index: 9;
+}
+.tooltip:hover .tooltip__content {
+   visibility: visible;
+}
+.tooltip__content p {
+   margin: 0 0 0.5em 0;
+}
+.tooltip__content p:last-child {
+   margin-bottom: 0;
+}
+
+header {
+   position: relative;
+}
+header img {
+   position: fixed;
+   top: 10px;
+   right: 10px;
+}

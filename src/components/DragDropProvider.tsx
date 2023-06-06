@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { DraggableLocation, DropResult } from 'react-beautiful-dnd'
-import { v4 } from 'uuid'
 import { ColumnType } from '../assets'
 import type { DRIVER_NAME, TaskTypeDetails } from '../assets/api'
-// import { useHashParams } from '../hooks/setHashParams'
 import { useHashState } from '../hooks/useHashState'
 
 type DragDropProps = (source: DraggableLocation, destination: DraggableLocation) => void
@@ -20,7 +18,6 @@ type ColDropshadow = { marginLeft: number; height: number }
 type DragDropContextProps = {
    onSubmit: (newRow: string, colIndex: number) => void
    handleDuplicateTask: (rowIndex: number, colIndex: number) => void
-   handleNewColumn: (newName: string) => void
    handleRemoveTask: (rowIndex: number, colIndex: number) => void
    handleDeleteColumn: (colIndex: number) => void
    handleDragEnd: (result: DropResult) => void
@@ -290,26 +287,11 @@ const DragDropProvider: React.FC<{ data: ColumnType[]; details: TaskTypeDetails 
       })
    }
 
-   const handleNewColumn = (newName: string) => {
-      setColumns((prev) => {
-         const updated = [...prev]
-         return [
-            ...updated,
-            {
-               id: v4(),
-               title: newName,
-               tasks: [],
-            },
-         ]
-      })
-   }
-
    return (
       <DragDropContext.Provider
          value={{
             onSubmit,
             handleDuplicateTask,
-            handleNewColumn,
             handleRemoveTask,
             handleDeleteColumn,
             handleDragEnd,

@@ -8,6 +8,12 @@ const App: React.FC = () => {
    return (
       <div className="App">
          <h1>How do decide about Architecture Drivers</h1>
+         <header>
+            <img
+               alt="Number of stars from https://github.com/qunabu/Architecture-Drivers"
+               src="https://img.shields.io/github/stars/qunabu/Architecture-Drivers?style=social"
+            />
+         </header>
          <main>
             <DragDropProvider data={tasks} details={details}>
                <Board />

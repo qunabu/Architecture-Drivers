@@ -15,11 +15,28 @@ const Container = styled.div`
    border: 1px solid;
    flex-wrap: wrap;
    position: relative;
-   > b {
+   > .description,
+   > .bonus {
       position: absolute;
       font-size: 70%;
       right: 3px;
       top: 3px;
+   }
+   > .description i {
+      display: inline-block;
+      padding: 3px;
+      border: 1px solid;
+      border-radius: 100%;
+
+      width: 18px;
+      height: 18px;
+      text-align: center;
+      line-height: 10px;
+      font-style: normal;
+      font-size: 12px;
+   }
+   > .bonus {
+      font-weight: bold;
    }
    .affect-list {
       position: absolute;
@@ -67,48 +84,28 @@ const Row: React.FC<Props> = ({ task, index, tasks }) => {
             >
                {task}
                {affects.bonus !== 0 && (
-                  <b className="bonus">
-                     Bonus: {affects.bonus > 0 ? '+' : ''}
-                     {affects.bonus}
-                  </b>
+                  <div className="bonus">
+                     <div className="tooltip">
+                        Bonus: {affects.bonus > 0 ? '+' : ''}
+                        {affects.bonus}
+                        <div className="tooltip__content">
+                           {affects.positive.length > 0 && (
+                              <p>Positive: {affects.positive.join(', ')}</p>
+                           )}
+                           {affects.negative.length > 0 && (
+                              <p>Negative: {affects.negative.join(', ')}</p>
+                           )}
+                        </div>
+                     </div>
+                  </div>
                )}
 
-               {/**
-               {affects.positive.length > 0 && <small>positive {affects.positive}</small>}
-               {affects.negative.length > 0 && <small>negative {affects.negative}</small>}
-         **/}
-
-               {/**
-
-               {affects && Object.values(affects).reduce((acc, affect) => acc + affect, 0)}
-
-         */}
-
-               {/**
-
-            {task.affects && (
-               <div className="affect-list">
-                  <ul>
-                     {
-                        // plus from ones above
-                        // minus from ones below
-                     }
-                     {tasks
-                        .filter(
-                           (tTask, tIndex) =>
-                              (tIndex > index && tTask.affects && tTask.affects[task.id] === 1) ||
-                              (tIndex < index && tTask.affects && tTask.affects[task.id] === -1),
-                        )
-                        .map((tTask) => (
-                           <li key={tTask.id}>
-                              {tTask.id} {tTask.affects && tTask.affects[task.id]}
-                           </li>
-                        ))}
-                  </ul>
+               <div className="description">
+                  <div className="tooltip">
+                     <i>i</i>
+                     <div className="tooltip__content">{details[task]?.description}</div>
+                  </div>
                </div>
-            )}
-
-                        */}
             </Container>
          )}
       </Draggable>

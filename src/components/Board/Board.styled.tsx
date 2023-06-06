@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-   position: sticky;
-   top: 0;
    display: inline-flex;
    justify-content: flex-start;
    align-items: flex-start;
-   position: relative;
+   position: sticky;
+   top: 0;
    //width: 100%;
    height: 100%;
    margin-top: 10px;
