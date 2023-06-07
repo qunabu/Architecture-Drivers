@@ -14,6 +14,7 @@ export const Container = styled.div`
    white-space: nowrap;
    box-sizing: border-box;
    padding: 10px 20px;
+   padding-right: 0;
 `
 
 type DropshadowProps = {

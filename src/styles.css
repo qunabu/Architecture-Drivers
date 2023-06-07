@@ -18,7 +18,7 @@ main {
    flex-direction: row;
    flex-wrap: nowrap;
    justify-content: flex-start;
-   align-items: flex-start;
+   align-items: stretch;
    align-content: flex-start;
 }
 main > div {
@@ -99,5 +99,65 @@ header img {
    position: fixed;
    top: 10px;
    right: 10px;
+}
+
+.legend .vertical {
+   position: absolute;
+   height: 100%;
+   writing-mode: vertical-lr;
+   display: flex;
+   justify-content: space-between;
+   font-size: 10px;
+   padding: 10px;
+   gap: 100px;
+}
+.legend {
+   padding: 20px 20px 20px 0px;
+   flex: 1;
+   position: sticky;
+   top: 0px;
+   height: 100%;
+   white-space: nowrap;
+}
+
+.column__placeholder {
+   display: block;
+   padding: 20px;
+   white-space: normal;
+   background: #ccc;
+   border: 1px solid;
+   border-radius: 4px;
+}
+
+table {
+   border-collapse: collapse;
+   border: 1px solid;
+}
+table tr,
+table td,
+table th {
+   border: 1px solid;
+}
+
+table td {
+   text-align: center;
+}
+
+table td.same {
+   background: gray;
+}
+
+table td.header,
+table th {
+   text-align: left;
+   font-weight: bold;
+   font-size: 11px;
+   padding: 2px;
+}
+
+table th {
+   writing-mode: vertical-lr;
+   -webkit-transform: rotate(180deg);
+   transform: rotate(180deg);
 }
 

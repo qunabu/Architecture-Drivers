@@ -17,6 +17,12 @@ const App: React.FC = () => {
          <main>
             <DragDropProvider data={tasks} details={details}>
                <Board />
+               <div className="legend">
+                  <div className="vertical">
+                     <div className="top"> &lt;-- most important</div>
+                     <div className="bottom">less important --&gt;</div>
+                  </div>
+               </div>
                <Description />
             </DragDropProvider>
          </main>

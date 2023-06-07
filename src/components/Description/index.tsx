@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 
 import { useDragDrop } from '../DragDropProvider'
 import { DRIVER_NAME } from '../../assets'
+import { Table } from './table'
 
 const Affection: React.FC<{ task: DRIVER_NAME; index: number; tasks: DRIVER_NAME[] }> = ({
    task,
@@ -52,16 +53,14 @@ export const Description: React.FC = () => {
       <div className="description">
          {columns[1].tasks.length === 0 && (
             <div>
-               <h3>
-                  Move (drag&drop) drivers from left <i>unassigned</i> to right one -&gt;{' '}
-                  <i>assigned</i>.{' '}
-               </h3>
                <p>
                   Deciding on the order of architecture drivers involves understanding their
                   relative importance and prioritizing them based on the specific context and goals
                   of the architecture. Here are some steps you can follow to make informed decisions
                   about the order of architecture drivers:
                </p>
+
+               <Table />
 
                <p>
                   1. Identify and list the architecture drivers: Start by identifying and listing
