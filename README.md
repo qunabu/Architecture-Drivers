@@ -30,17 +30,18 @@ This is a tool that hopefully will help you with decision
 
 ## Todo
 
--  [ ] add keyword (right side column) most important, least important, not important (left side column)
+-  [x] add keyword (right side column) most important, least important, not important (left side column)
 -  [ ] meaningful ux
--  [ ] add table to initial readme
+-  [x] add table to initial readme
 -  [ ] add arrows for possible sorting
 -  [ ] fetch affection description
 -  [ ] add data to public as json so it's not hardcoded
 -  [ ] get rid of styled components
 -  [ ] add possibility to select json file (remotely)
--  [ ] draw a table like in the paper
+-  [x] draw a table like in the paper
 -  [x] add tooltip with descriptions in unassigned column
 -  [ ] checkbox with hide descriptions
+-  [ ] add button to reset state
 
 With help of GTPChat.
 
