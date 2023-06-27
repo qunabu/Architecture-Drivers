@@ -28,20 +28,5 @@ This is a tool that hopefully will help you with decision
 -  [What are architectural drivers in software development?](https://appunite.com/blog/what-are-architectural-drivers-in-software-development)
 -  drag & drop code forked from [tobiasafischer/dragndrop](https://github.com/tobiasafischer/dragndrop)
 
-## Todo
-
--  [x] add keyword (right side column) most important, least important, not important (left side column)
--  [ ] meaningful ux
--  [x] add table to initial readme
--  [ ] add arrows for possible sorting
--  [ ] fetch affection description
--  [ ] add data to public as json so it's not hardcoded
--  [ ] get rid of styled components
--  [ ] add possibility to select json file (remotely)
--  [x] draw a table like in the paper
--  [x] add tooltip with descriptions in unassigned column
--  [ ] checkbox with hide descriptions
--  [ ] add button to reset state
-
 With help of GTPChat.
 
