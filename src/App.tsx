@@ -5,7 +5,7 @@ import {
    PointerSensor,
    useSensor,
    useSensors,
-   closestCorners,
+   //closestCorners,
    closestCenter,
    //pointerWithin,
    //rectIntersection,
