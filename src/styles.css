@@ -47,6 +47,7 @@ main {
 
 .item.isDragging {
   z-index: 9999;
+  opacity: 0;
 }
 
 .item__right {
@@ -67,6 +68,13 @@ main {
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
+}
+.droppable.empty {
+  padding: 0;
+}
+.droppable.isOver {
+  padding: 0;
+  filter: blur(10px);
 }
 
 .item,
@@ -136,6 +144,15 @@ h3 {
   background: #222222;
 }
 
+#group2 .col1 h2 {
+  position: absolute;
+  width: 100%;
+}
+
+#group2 .droppable {
+  padding-top: 40px;
+}
+
 #group2 .item {
   margin: 5px 5px 5px 5px;
 }
@@ -143,7 +160,7 @@ h3 {
 #group2 small {
   margin: 0px;
   cursor: move;
-  padding: 5px 20px;
+  padding: 20px;
   display: block;
   background: #f5f5f5 0% 0% no-repeat padding-box;
 }
@@ -154,6 +171,7 @@ h3 {
 #group2 .col1 > div {
   position: sticky;
   top: 0;
+  width: 300px;
 }
 
 .tooltip {
@@ -288,6 +306,7 @@ table th {
 
 .description {
   border-left: 1px solid #222222;
+  min-height: 50vh;
 }
 .description ul {
   margin: 0;

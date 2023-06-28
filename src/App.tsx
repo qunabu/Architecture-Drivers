@@ -6,7 +6,15 @@ import {
   useSensor,
   useSensors,
   closestCorners,
+  //closestCenter,
+  //pointerWithin,
+  //rectIntersection,
   DragEndEvent,
+  DragOverEvent,
+  DropAnimation,
+  defaultDropAnimation,
+  DragOverlay,
+  DragStartEvent,
 } from "@dnd-kit/core";
 import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { DRIVER_NAME } from "./store/api";
@@ -18,12 +26,15 @@ import { ContainerId } from "./store/api";
 import { Description } from "./components/Description";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import SortableItem from "./components/SortableItem";
 
-type DNDHandle = (event: DragEndEvent) => void;
+type DNDHandleEnd = (event: DragEndEvent) => void;
 
 function App() {
   const [showDescription, setShowDescription] = useState(false);
   const { items, setItems, reset, loading } = useContext(StoreContext);
+
+  const [activeDriver, setActiveDriver] = useState<null | DRIVER_NAME>(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -32,48 +43,74 @@ function App() {
     })
   );
 
-  const handleDragOver: DNDHandle = ({ over, active }) => {
-    const overId = over?.id;
-
-    if (!overId) {
-      return;
+  const findBoardSectionContainer = (
+    boardSections: typeof items,
+    id: string
+  ) => {
+    if (id in boardSections) {
+      return id;
     }
 
-    if (!active.data.current) {
-      return;
-    }
-
-    const activeContainer = active.data.current.sortable.containerId;
-    const overContainer =
-      over.data.current?.sortable.containerId ||
-      (overId.toString().indexOf("group") === 0 ? overId : undefined);
-
-    if (!overContainer) {
-      return;
-    }
-
-    if (activeContainer !== overContainer) {
-      setItems &&
-        setItems((items) => {
-          if (!active.data.current) {
-            return items;
-          }
-          const activeIndex = active.data.current.sortable.index;
-          const overIndex = over.data.current?.sortable.index || 0;
-
-          return moveBetweenContainers(
-            items,
-            activeContainer,
-            activeIndex,
-            overContainer,
-            overIndex,
-            active.id as DRIVER_NAME
-          );
-        });
-    }
+    const container = Object.keys(boardSections).find((key) =>
+      boardSections[key as ContainerId].find((item) => item === id)
+    );
+    return container;
   };
 
-  const handleDragEnd: DNDHandle = ({ active, over }) => {
+  const handleDragStart = ({ active }: DragStartEvent) => {
+    setActiveDriver(active.id as DRIVER_NAME);
+  };
+
+  const handleDragOver = ({ active, over }: DragOverEvent) => {
+    // Find the containers
+    const activeContainer = findBoardSectionContainer(
+      items,
+      active.id as string
+    ) as ContainerId;
+    const overContainer = findBoardSectionContainer(
+      items,
+      over?.id as string
+    ) as ContainerId;
+
+    console.log("settings items", activeContainer, overContainer);
+
+    if (
+      !activeContainer ||
+      !overContainer ||
+      activeContainer === overContainer
+    ) {
+      return;
+    }
+
+    setItems &&
+      setItems((boardSection) => {
+        const activeItems = boardSection[activeContainer];
+        const overItems = boardSection[overContainer];
+
+        // Find the indexes for the items
+        const activeIndex = activeItems.findIndex((item) => item === active.id);
+        const overIndex = overItems.findIndex((item) => item !== over?.id);
+
+        return {
+          ...boardSection,
+          [activeContainer]: [
+            ...boardSection[activeContainer].filter(
+              (item) => item !== active.id
+            ),
+          ],
+          [overContainer]: [
+            ...boardSection[overContainer].slice(0, overIndex),
+            boardSection[activeContainer][activeIndex],
+            ...boardSection[overContainer].slice(
+              overIndex,
+              boardSection[overContainer].length
+            ),
+          ],
+        };
+      });
+  };
+
+  const handleDragEnd: DNDHandleEnd = ({ active, over }) => {
     if (!over) {
       return;
     }
@@ -116,6 +153,7 @@ function App() {
           return newItems;
         });
     }
+    setActiveDriver(null);
   };
 
   const moveBetweenContainers = (
@@ -137,12 +175,17 @@ function App() {
     return <h1>loading...</h1>;
   }
 
+  const dropAnimation: DropAnimation = {
+    ...defaultDropAnimation,
+  };
+
   return (
     <DndContext
       collisionDetection={closestCorners}
       sensors={sensors}
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
+      onDragStart={handleDragStart}
     >
       <Header />
       <main>
@@ -183,6 +226,11 @@ function App() {
           <Description showDescription={showDescription} />
         </Container>
       </main>
+      <DragOverlay dropAnimation={dropAnimation}>
+        {activeDriver ? (
+          <SortableItem id={activeDriver} index={0} group="group1" />
+        ) : null}
+      </DragOverlay>
       <Footer />
     </DndContext>
   );
