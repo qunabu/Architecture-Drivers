@@ -6,7 +6,7 @@ import {
    useSensor,
    useSensors,
    closestCorners,
-   //closestCenter,
+   closestCenter,
    //pointerWithin,
    //rectIntersection,
    DragEndEvent,
@@ -158,7 +158,7 @@ function App() {
 
    return (
       <DndContext
-         collisionDetection={closestCorners}
+         collisionDetection={closestCenter}
          sensors={sensors}
          onDragEnd={handleDragEnd}
          onDragOver={handleDragOver}
