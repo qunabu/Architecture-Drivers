@@ -1,80 +1,80 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk:wght@600&display=swap');
 
 * {
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   box-sizing: border-box;
+   font-family: 'Inter', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   padding: 0;
 }
 
 #root {
-  width: 100%;
+   width: 100%;
 }
 main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 .item {
-  display: flex;
-  align-items: center;
-  user-select: none;
-  cursor: grab;
-  box-sizing: border-box;
-  background: #7c9aff 0% 0% no-repeat padding-box;
-  border-radius: 25px;
-  font: normal normal 600 18px/26px "Space Grotesk";
-  letter-spacing: -0.27px;
-  color: #ffffff;
-  padding: 5px 19px;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.3s;
-  position: relative;
+   display: flex;
+   align-items: center;
+   user-select: none;
+   cursor: grab;
+   box-sizing: border-box;
+   background: #7c9aff 0% 0% no-repeat padding-box;
+   border-radius: 25px;
+   font: normal normal 600 18px/26px 'Space Grotesk';
+   letter-spacing: -0.27px;
+   color: #ffffff;
+   padding: 5px 19px;
+   justify-content: space-between;
+   align-items: center;
+   transition: background-color 0.3s;
+   position: relative;
 }
 .item:hover {
-  background-color: #547bfe;
+   background-color: #547bfe;
 }
 
 .item.isDragging {
-  z-index: 9999;
-  opacity: 0;
+   z-index: 9999;
+   opacity: 0;
 }
 
 .item__right {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  margin-left: 16px;
+   display: inline-flex;
+   flex-wrap: nowrap;
+   margin-left: 16px;
 }
 
 .droppable {
-  padding: 10px 10px;
-  min-width: 110px;
+   padding: 10px 10px;
+   min-width: 110px;
 }
 
 .droppable.horizontal {
-  padding: 0px;
-  margin: 10px 10px 10px 20px;
-  flex: 1;
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
+   padding: 0px;
+   margin: 10px 10px 10px 20px;
+   flex: 1;
+   flex-direction: row;
+   display: flex;
+   flex-wrap: wrap;
 }
 .droppable.empty {
-  padding: 0;
+   padding: 0;
 }
 .droppable.isOver {
-  padding: 0;
-  filter: blur(10px);
+   padding: 0;
+   filter: blur(10px);
 }
 
 .item,
@@ -84,326 +84,356 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
+   margin: 0;
+   font-family: 'Space Grotesk', sans-serif;
+   font-weight: 600;
 }
 
 h1 {
-  border-top: 1px solid #222222;
-  border-bottom: 1px solid #222222;
-  margin-top: 5px;
-  padding: 25px 50px;
-  font: normal normal 600 36px/72px "Space Grotesk";
-  line-height: 1em;
-  letter-spacing: -0.27px;
+   border-top: 1px solid #222222;
+   border-bottom: 1px solid #222222;
+   margin-top: 5px;
+   padding: 25px 50px;
+   font: normal normal 600 36px/72px 'Space Grotesk';
+   line-height: 1em;
+   letter-spacing: -0.27px;
 }
 
 h2,
 h3 {
-  font: normal normal 600 18px/72px "Space Grotesk";
-  letter-spacing: -0.27px;
-  line-height: 1em;
+   font: normal normal 600 18px/72px 'Space Grotesk';
+   letter-spacing: -0.27px;
+   line-height: 1em;
 }
 
 .item span {
-  font-family: "Space Grotesk", sans-serif;
-  white-space: nowrap;
+   font-family: 'Space Grotesk', sans-serif;
+   white-space: nowrap;
 }
 #group1 {
-  margin-left: 29px;
-  border-left: 1px solid #222222;
+   margin-left: 29px;
+   border-left: 1px solid #222222;
 }
 
 #group1 .item {
-  margin: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
 }
 
 #group1 h2 {
-  margin: 0;
-  padding: 10px 25px 10px 25px;
-  border-bottom: 1px solid #222222;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+   margin: 0;
+   padding: 10px 25px 10px 25px;
+   border-bottom: 1px solid #222222;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 
 #group2 {
-  display: flex;
-  align-items: stretch;
-  border-top: 1px solid #222222;
-  margin-left: 29px;
-  border-left: 1px solid #222222;
+   display: flex;
+   align-items: stretch;
+   border-top: 1px solid #222222;
+   margin-left: 29px;
+   border-left: 1px solid #222222;
 }
 
 #group2 h2 {
-  margin: 0;
-  padding: 10px 0 10px 25px;
-  border-bottom: 1px solid #222222;
-  color: #fff;
-  background: #222222;
+   margin: 0;
+   padding: 10px 0 10px 25px;
+   border-bottom: 1px solid #222222;
+   color: #fff;
+   background: #222222;
 }
 
 #group2 .col1 h2 {
-  position: absolute;
-  width: 100%;
+   position: absolute;
+   width: 100%;
 }
 
 #group2 .droppable {
-  padding-top: 40px;
+   padding-top: 40px;
 }
 
 #group2 .item {
-  margin: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
 }
 
 #group2 small {
-  margin: 0px;
-  cursor: move;
-  padding: 20px;
-  display: block;
-  background: #f5f5f5 0% 0% no-repeat padding-box;
+   margin: 0px;
+   cursor: move;
+   padding: 20px;
+   display: block;
+   background: #f5f5f5 0% 0% no-repeat padding-box;
 }
 
 #group2 .col1 {
-  border-right: 1px solid #222222;
+   border-right: 1px solid #222222;
 }
 #group2 .col1 > div {
-  position: sticky;
-  top: 0;
-  width: 300px;
+   position: sticky;
+   top: 0;
+   width: 300px;
 }
 
 .tooltip {
-  position: relative;
-  display: flex;
+   position: relative;
+   display: flex;
 }
 
 .tooltip__content {
-  text-align: left;
-  white-space: normal;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: white;
-  padding: 6px;
-  visibility: hidden;
-  max-width: 300px;
-  width: max-content;
-  display: block;
-  z-index: 99999;
-  font: normal normal normal 12px/14px Inter;
-  line-height: 1.35em;
-  letter-spacing: -0.18px;
-  color: #ffffff;
-  background: #222222 0% 0% no-repeat padding-box;
-  transition: visibility 0.5s, opacity 0.5s, display 0.5s;
-  opacity: 0;
-  will-change: opacity;
-  display: none;
-  z-index: 9999;
+   text-align: left;
+   white-space: normal;
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   background: white;
+   padding: 6px;
+   visibility: hidden;
+   max-width: 300px;
+   width: max-content;
+   display: block;
+   z-index: 99999;
+   font: normal normal normal 12px/14px Inter;
+   line-height: 1.35em;
+   letter-spacing: -0.18px;
+   color: #ffffff;
+   background: #222222 0% 0% no-repeat padding-box;
+   transition: visibility 0.5s, opacity 0.5s, display 0.5s;
+   opacity: 0;
+   will-change: opacity;
+   display: none;
+   z-index: 9999;
 }
 
 .tooltip.right .tooltip__content {
-  left: auto;
-  right: 10px;
+   left: auto;
+   right: 10px;
 }
 
 .tooltip.top .tooltip__content {
-  top: auto;
-  bottom: 10px;
+   top: auto;
+   bottom: 10px;
 }
 
 .tooltip:hover .tooltip__content {
-  visibility: visible;
-  opacity: 1;
-  display: block;
+   visibility: visible;
+   opacity: 1;
+   display: block;
 }
 .tooltip__content p {
-  margin: 0 0 0.5em 0;
+   margin: 0 0 0.5em 0;
 }
 .tooltip__button {
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
 
-  background: #fff;
-  border-radius: 100%;
-  display: inline-block;
-  margin-left: 5px;
-  margin-right: 0px;
-  text-align: center;
-  line-height: 10px;
+   background: #fff;
+   border-radius: 100%;
+   display: inline-block;
+   margin-left: 5px;
+   margin-right: 0px;
+   text-align: center;
+   line-height: 10px;
 }
 
 .tooltip__button > * {
-  font-size: 13px;
-  font-style: normal;
-  font-variant: normal;
-  color: #222222;
-  line-height: 1em;
+   font-size: 13px;
+   font-style: normal;
+   font-variant: normal;
+   color: #222222;
+   line-height: 1em;
 }
 .tooltip__content p:last-child {
-  margin-bottom: 0;
+   margin-bottom: 0;
 }
 
 table {
-  border-collapse: collapse;
-  border: 1px solid;
-  margin-bottom: 50px;
+   border-collapse: collapse;
+   border: 1px solid;
+   margin-bottom: 50px;
 }
 table tr,
 table td,
 table th {
-  border: 1px solid;
+   border: 1px solid;
 }
 
 table td {
-  text-align: center;
+   text-align: center;
 }
 
 table td.same {
-  background: gray;
+   background: gray;
 }
 
 table td.header,
 table th {
-  text-align: left;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 2px;
+   text-align: left;
+   font-weight: bold;
+   font-size: 14px;
+   padding: 2px;
 }
 
 table th {
-  writing-mode: vertical-lr;
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+   writing-mode: vertical-lr;
+   -webkit-transform: rotate(180deg);
+   transform: rotate(180deg);
 }
 
 .legend {
-  padding: 20px 30px 20px 0;
-  flex: 1 1;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  height: 100%;
-  white-space: nowrap;
-  text-transform: uppercase;
+   padding: 20px 30px 20px 0;
+   flex: 1 1;
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0;
+   height: 100%;
+   white-space: nowrap;
+   text-transform: uppercase;
 }
 
 .legend .vertical {
-  position: absolute;
-  height: 100%;
-  -webkit-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  padding: 10px;
-  grid-gap: 100px;
-  gap: 100px;
+   position: absolute;
+   height: 100%;
+   -webkit-writing-mode: vertical-lr;
+   writing-mode: vertical-lr;
+   display: flex;
+   justify-content: space-between;
+   font-size: 10px;
+   padding: 10px;
+   grid-gap: 100px;
+   gap: 100px;
 }
 
 .description {
-  border-left: 1px solid #222222;
-  min-height: 50vh;
+   border-left: 1px solid #222222;
+   min-height: 50vh;
 }
 .description ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+   margin: 0;
+   padding: 0;
+   list-style: none;
 }
 .description li {
-  margin: 0;
+   margin: 0;
 }
 .description li p {
-  margin: 1em;
+   margin: 1em;
 }
 .description article {
-  font: normal normal normal 15px/28px Inter;
-  letter-spacing: -0.23px;
-  padding: 50px 95px;
+   font: normal normal normal 15px/28px Inter;
+   letter-spacing: -0.23px;
+   padding: 50px 95px;
 }
 
 button {
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-  box-sizing: border-box;
-  background: #222 0% 0% no-repeat padding-box;
-  border-radius: 25px;
-  font: normal normal 600 14px/26px "Space Grotesk";
-  letter-spacing: -0.27px;
-  color: #ffffff;
-  padding: 3px 16px;
-  justify-content: space-between;
-  align-items: center;
-  transition: opacity 0.3s;
-  appearance: none;
-  box-shadow: none;
-  outline: none;
-  border: none;
+   padding: 0;
+   margin: 0;
+   display: inline-flex;
+   align-items: center;
+   user-select: none;
+   cursor: pointer;
+   box-sizing: border-box;
+   background: #222 0% 0% no-repeat padding-box;
+   border-radius: 25px;
+   font: normal normal 600 14px/26px 'Space Grotesk';
+   letter-spacing: -0.27px;
+   color: #ffffff;
+   padding: 3px 16px;
+   justify-content: space-between;
+   align-items: center;
+   transition: opacity 0.3s;
+   appearance: none;
+   box-shadow: none;
+   outline: none;
+   border: none;
 }
 button:hover {
-  opacity: 0.8;
-  text-decoration: underline;
+   opacity: 0.8;
+   text-decoration: underline;
 }
 
 .buttons button {
-  margin-left: 5px;
+   margin-left: 5px;
+}
+
+.buttons label {
+   padding: 0;
+   margin: 0;
+   display: inline-flex;
+   align-items: center;
+   user-select: none;
+   cursor: pointer;
+   box-sizing: border-box;
+   background: #222 0% 0% no-repeat padding-box;
+   border-radius: 25px;
+   font: normal normal 600 14px/26px 'Space Grotesk';
+   letter-spacing: -0.27px;
+   color: #ffffff;
+   padding: 3px 16px;
+   justify-content: space-between;
+   align-items: center;
+   transition: opacity 0.3s;
+   appearance: none;
+   box-shadow: none;
+   outline: none;
+   border: none;
+}
+.buttons label input {
+   margin-left: 10px;
+   border-radius: 25px;
+   border: none;
+   text-align: center;
 }
 
 header .share_btn {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+   position: absolute;
+   right: 20px;
+   top: 20px;
 }
 
 header a {
-  position: absolute;
-  right: 20px;
-  top: 60px;
+   position: absolute;
+   right: 20px;
+   top: 60px;
 }
 
 footer {
-  border-top: 1px solid #222222;
-  padding-left: 29px;
+   border-top: 1px solid #222222;
+   padding-left: 29px;
 }
 
 footer > div {
-  border-left: 1px solid #222222;
-  padding: 10px 25px 10px 25px;
+   border-left: 1px solid #222222;
+   padding: 10px 25px 10px 25px;
 }
 
 footer li a {
-  font-size: 14px;
-  color: #222;
-  text-decoration: underline;
+   font-size: 14px;
+   color: #222;
+   text-decoration: underline;
 }
 footer li a:hover {
-  text-decoration: dotted;
+   text-decoration: dotted;
 }
 
 ul.affect .tooltip {
-  display: inline-flex;
+   display: inline-flex;
 }
 
 ul.affect .tooltip__button {
-  width: auto;
-  height: auto;
-  background: transparent;
-  text-decoration: underline;
+   width: auto;
+   height: auto;
+   background: transparent;
+   text-decoration: underline;
 }
 ul.affect .tooltip__button:hover {
-  opacity: 0.8;
+   opacity: 0.8;
 }
 ul.affect .tooltip__content {
-  top: 20px;
+   top: 20px;
 }
 
 ul.affect .tooltip.top .tooltip__content {
-  bottom: 20px;
+   bottom: 20px;
 }
+

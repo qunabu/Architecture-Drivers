@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import {
    DndContext,
    KeyboardSensor,
@@ -32,7 +32,7 @@ type DNDHandleEnd = (event: DragEndEvent) => void
 
 function App() {
    const [showDescription, setShowDescription] = useState(false)
-   const { items, setItems, reset, loading } = useContext(StoreContext)
+   const { items, setItems, reset, loading, max, setMax } = useContext(StoreContext)
 
    const [activeDriver, setActiveDriver] = useState<null | DRIVER_NAME>(null)
 
@@ -169,14 +169,27 @@ function App() {
             <Container id="group1">
                <h2>
                   Drivers
-                  {items.group2.length > 0 && (
-                     <div className="buttons">
-                        <button onClick={() => setShowDescription((prevState) => !prevState)}>
-                           {showDescription ? 'Hide ' : 'Show '} description
-                        </button>
-                        <button onClick={() => reset && reset()}>Reset</button>
-                     </div>
-                  )}
+                  <div className="buttons">
+                     <label>
+                        <span>Maximum number:</span>
+                        <input
+                           type="number"
+                           value={max}
+                           onChange={(e) => setMax && setMax(e.target.valueAsNumber)}
+                           step={1}
+                           min={3}
+                           max={8}
+                        />
+                     </label>
+                     {items.group2.length > 0 && (
+                        <Fragment>
+                           <button onClick={() => setShowDescription((prevState) => !prevState)}>
+                              {showDescription ? 'Hide ' : 'Show '} description
+                           </button>
+                           <button onClick={() => reset && reset()}>Reset</button>
+                        </Fragment>
+                     )}
+                  </div>
                </h2>
                <Droppable id="group1" items={items.group1} key="group1" mode="horizontal" />
             </Container>
