@@ -67,6 +67,10 @@ function App() {
          return
       }
 
+      if (overContainer === 'group2' && items.group2.length === max) {
+         return
+      }
+
       setItems &&
          setItems((boardSection) => {
             const activeItems = boardSection[activeContainer]
@@ -107,6 +111,10 @@ function App() {
          const overContainer: ContainerId = over.data.current?.sortable.containerId || over.id
          const activeIndex = active.data.current.sortable.index
          const overIndex = over.data.current?.sortable.index || 0
+
+         if (overContainer === 'group2' && items.group2.length === max) {
+            return
+         }
 
          setItems &&
             setItems((items) => {

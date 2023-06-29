@@ -73,8 +73,10 @@ main {
    padding: 0;
 }
 .droppable.isOver {
+   /*
    padding: 0;
    filter: blur(10px);
+   */
 }
 
 .item,
