@@ -112,7 +112,11 @@ function App() {
          const activeIndex = active.data.current.sortable.index
          const overIndex = over.data.current?.sortable.index || 0
 
-         if (overContainer === 'group2' && items.group2.length === max) {
+         if (
+            overContainer === 'group2' &&
+            items.group2.length === max &&
+            activeContainer !== overContainer
+         ) {
             return
          }
 
