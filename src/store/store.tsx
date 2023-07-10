@@ -34,6 +34,8 @@ export const StoreContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
    const [details, setDetails] = useState<TaskTypeDetails>({})
 
+   const [url] = useHashParams<string>('storeUrl', 'https://api.npoint.io/7f9e677a982eed622d84')
+
    const [items, setItems] = useHashParams<State>('groups', {
       group1: DRIVERS,
       group2: [],
@@ -62,11 +64,11 @@ export const StoreContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
    useEffect(() => {
       setLoading(true)
-      fetch('drivers.json')
+      fetch(url)
          .then((data) => data.json())
          .then((drivers) => onDriversLoaded(drivers))
          .finally(() => setLoading(false))
-   }, [])
+   }, [url])
 
    const reset = () => {
       setItems({
