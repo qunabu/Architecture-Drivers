@@ -185,7 +185,7 @@ function App() {
          onDragOver={handleDragOver}
          onDragStart={handleDragStart}
       >
-         <SettingsDialog open={showSettings} />
+         <SettingsDialog open={showSettings} onClose={() => setShowSettings(false)} />
 
          <Header onSettingsClick={() => setShowSettings(true)} />
          <main>

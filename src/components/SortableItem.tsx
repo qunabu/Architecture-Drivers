@@ -58,22 +58,18 @@ const SortableItem: React.FC<{
             <Tooltip button={<i>i</i>}>{details[id]?.description}</Tooltip>
             {group === 'group2' && affects.negative.length > 0 && (
                <Tooltip button={<i>-</i>}>
-                  <IntlMessage item="Negative bonus from" defaultMessage="Negative bonus from" />:{' '}
-                  {affects.negative
-                     .map((driverName) => (
-                        <IntlMessage item={driverName} defaultMessage={driverName} />
-                     ))
-                     .join(', ')}
+                  <IntlMessage item="Negative bonus from" defaultMessage="Negative bonus from" />{' '}
+                  {affects.negative.map((driverName) => (
+                     <IntlMessage item={driverName} defaultMessage={driverName} />
+                  ))}
                </Tooltip>
             )}
             {group === 'group2' && affects.positive.length > 0 && (
                <Tooltip button={<i>+</i>}>
-                  <IntlMessage item="Positive bonus from" defaultMessage="Positive bonus from" />:{' '}
-                  {affects.positive
-                     .map((driverName) => (
-                        <IntlMessage item={driverName} defaultMessage={driverName} />
-                     ))
-                     .join(', ')}
+                  <IntlMessage item="Positive bonus from" defaultMessage="Positive bonus from" />{' '}
+                  {affects.positive.map((driverName) => (
+                     <IntlMessage item={driverName} defaultMessage={driverName} />
+                  ))}
                </Tooltip>
             )}
          </div>

@@ -91,6 +91,8 @@ h6 {
    font-weight: 600;
 }
 
+ul.affect p,
+ul.affect .tooltip__button li > p,
 .item > span > p,
 .vertical > .top > p,
 .vertical > .bottom > p,

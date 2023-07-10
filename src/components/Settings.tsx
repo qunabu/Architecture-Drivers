@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
 import { IntlMessage, DEFAULT_VALUES } from './IntMessage'
 import { useHashParams } from '../hooks/setHashParams'
 
-export const SettingsDialog: React.FC<{ open?: boolean }> = ({ open = true }) => {
+export const SettingsDialog: React.FC<{ open?: boolean; onClose: () => void }> = ({
+   open = true,
+   onClose,
+}) => {
    const [intlUrl, setIntlUrl] = useHashParams<string>(
       'intlUrl',
       'https://api.npoint.io/081dce210e6b53f8fad0',
@@ -12,14 +14,8 @@ export const SettingsDialog: React.FC<{ open?: boolean }> = ({ open = true }) =>
       'https://api.npoint.io/00bbeb9a614af327487e',
    )
 
-   const [isOpen, setIsOpen] = useState<boolean>(open)
-
-   useEffect(() => {
-      setIsOpen(open)
-   }, [open])
-
    return (
-      <div className={`settings ${isOpen ? 'open' : ''}`}>
+      <div className={`settings ${open ? 'open' : ''}`}>
          <article>
             <IntlMessage
                item={'SettingsDescription'}
@@ -44,7 +40,7 @@ export const SettingsDialog: React.FC<{ open?: boolean }> = ({ open = true }) =>
                   />
                </label>
             </div>
-            <button onClick={() => setIsOpen(false)}>
+            <button onClick={() => onClose()}>
                <IntlMessage item={'Close'} defaultMessage={'Close'} />
             </button>
          </article>
