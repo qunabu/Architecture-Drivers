@@ -27,11 +27,15 @@ import { Description } from './components/Description'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import SortableItem from './components/SortableItem'
+import { IntlMessage } from './components/IntMessage'
+import { SettingsDialog } from './components/Settings'
 
 type DNDHandleEnd = (event: DragEndEvent) => void
 
 function App() {
    const [showDescription, setShowDescription] = useState(false)
+   const [showSettings, setShowSettings] = useState(false)
+
    const { items, setItems, reset, loading, max, setMax } = useContext(StoreContext)
 
    const [activeDriver, setActiveDriver] = useState<null | DRIVER_NAME>(null)
@@ -161,7 +165,12 @@ function App() {
    }
 
    if (loading) {
-      return <h1>loading...</h1>
+      return (
+         <h1>
+            <IntlMessage item={'loading'} defaultMessage={'loading'} />
+            ...
+         </h1>
+      )
    }
 
    const dropAnimation: DropAnimation = {
@@ -176,14 +185,19 @@ function App() {
          onDragOver={handleDragOver}
          onDragStart={handleDragStart}
       >
-         <Header />
+         <SettingsDialog open={showSettings} />
+
+         <Header onSettingsClick={() => setShowSettings(true)} />
          <main>
             <Container id="group1">
                <h2>
-                  Drivers
+                  <IntlMessage item={'Drivers'} defaultMessage={'Drivers'} />
                   <div className="buttons">
                      <label>
-                        <span>Maximum number:</span>
+                        <span>
+                           <IntlMessage item={'Maximum Number'} defaultMessage={'Maximum Number'} />
+                           :
+                        </span>
                         <input
                            type="number"
                            value={max}
@@ -196,9 +210,17 @@ function App() {
                      {items.group2.length > 0 && (
                         <Fragment>
                            <button onClick={() => setShowDescription((prevState) => !prevState)}>
-                              {showDescription ? 'Hide ' : 'Show '} description
+                              <IntlMessage
+                                 item={`${showDescription ? 'Hide ' : 'Show '} description`}
+                                 defaultMessage={`${
+                                    showDescription ? 'Hide ' : 'Show '
+                                 } description`}
+                              />
                            </button>
-                           <button onClick={() => reset && reset()}>Reset</button>
+                           <button onClick={() => reset && reset()}>
+                              {' '}
+                              <IntlMessage item={'Reset'} defaultMessage={'Reset'} />
+                           </button>
                         </Fragment>
                      )}
                   </div>
@@ -208,14 +230,26 @@ function App() {
             <Container id="group2">
                <div className="col1">
                   <div>
-                     <h2>Selected drivers</h2>
+                     <h2>
+                        <IntlMessage
+                           item={'Selected Drivers'}
+                           defaultMessage={'Selected Drivers'}
+                        />
+                     </h2>
                      <Droppable id="group2" items={items.group2} key="group2" />
                   </div>
                </div>
                <div className="legend">
                   <div className="vertical">
-                     <div className="top"> &lt;-- most important</div>
-                     <div className="bottom">less important --&gt;</div>
+                     <div className="top">
+                        {' '}
+                        &lt;--{' '}
+                        <IntlMessage item={'most important'} defaultMessage={'most important'} />
+                     </div>
+                     <div className="bottom">
+                        <IntlMessage item={'less important'} defaultMessage={'less important'} />{' '}
+                        --&gt;
+                     </div>
                   </div>
                </div>
                <Description showDescription={showDescription} />
