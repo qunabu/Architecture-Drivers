@@ -13,7 +13,7 @@ type IntlLib = Record<string, string | string[]>
 
 type StoreContextType = {
    loading: boolean
-   getMessage: (key: string) => string | undefined
+   getMessage: (key: string) => string | string[] | undefined
 }
 
 export const StoreContext: Context<StoreContextType> = createContext({
